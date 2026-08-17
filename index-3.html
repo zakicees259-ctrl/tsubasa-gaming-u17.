@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM TSUBASA GAMING U17</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{min-height:100vh;color:#fff;background:radial-gradient(circle at 15% 20%,#0757ad 0,transparent 30%),radial-gradient(circle at 85% 80%,#063878 0,transparent 35%),linear-gradient(135deg,#010814,#031b3b,#00122d);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#48bfff 1px,transparent 1px);background-size:80px 80px,130px 130px;background-position:0 0,40px 70px;opacity:.65}
+header{text-align:center;padding:35px 20px 20px;position:relative}
+.logo{width:105px;height:105px;margin:auto;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;font-size:15px;line-height:1.15;border:3px solid #42c8ff;background:linear-gradient(145deg,#0969d0,#031533);box-shadow:0 0 18px #139dff,0 0 45px #006eff,inset 0 0 25px #087fff}
+h1{margin-top:18px;font-size:clamp(26px,6vw,48px);color:#70d8ff;text-shadow:0 0 12px #008cff,0 0 30px #006eff}
+header p{color:#c7eaff;margin-top:7px}
+.container{position:relative;width:min(900px,92%);margin:20px auto 50px;padding:30px;border-radius:25px;border:1px solid #3b9bd0;background:rgba(2,20,50,.88);backdrop-filter:blur(12px);box-shadow:0 0 35px rgba(0,125,255,.25)}
+.hidden{display:none!important}.title{text-align:center;margin-bottom:25px}.title h2{color:#fff;text-shadow:0 0 12px #008cff}.title p{margin-top:8px;color:#91bcd8}
+label{display:block;margin-top:16px;color:#b9e9ff;font-weight:bold;font-size:14px}
+input,select{width:100%;padding:14px;margin-top:7px;border-radius:12px;border:1px solid #1769a8;outline:none;color:#fff;background:#03152e}
+input:focus,select:focus{border-color:#42c8ff;box-shadow:0 0 15px #00aeff66}
+button{width:100%;padding:15px;margin-top:20px;border:0;border-radius:12px;color:#fff;font-size:16px;font-weight:bold;cursor:pointer;background:linear-gradient(90deg,#006eff,#00bfff,#006eff);background-size:200%;box-shadow:0 0 20px #009dff88}
+button:hover{background-position:right}.logout{background:linear-gradient(90deg,#900,#f33)}
+.info{padding:15px;margin-top:20px;border-radius:12px;border:1px solid #166aa5;background:#0064c019;color:#c5e7fa}
+.success{padding:15px;margin-top:20px;border-radius:12px;text-align:center;background:#00b4781f;border:1px solid #00d894;color:#9effd1}
+.error{padding:12px;margin-top:15px;border-radius:10px;text-align:center;background:#ff00001f;border:1px solid #ff4545;color:#ff9b9b}
+.dashboard{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}.card{padding:20px;text-align:center;border-radius:15px;border:1px solid #146ba8;background:#004ea026}.card h3{color:#62d4ff;font-size:30px}.card p{margin-top:5px;color:#a8c9dc}
+table{width:100%;margin-top:25px;border-collapse:collapse}th,td{padding:12px;border-bottom:1px solid #17486d;text-align:left}th{color:#5dceff}td{color:#c8e4f3}
+footer{text-align:center;padding:20px;color:#6e9bb8;font-size:13px;position:relative}
+@media(max-width:650px){.container{padding:20px}.dashboard{grid-template-columns:1fr}table{font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">TSUBASA<br>GAMING<br>U17</div>
+<h1>TEAM TSUBASA GAMING</h1>
+<p>ESPORT U17 REGISTRATION</p>
+</header>
+
+<section id="loginPage" class="container">
+<div class="title"><h2>🔐 LOGIN MEMBER</h2><p>Masuk menggunakan username khusus kamu</p></div>
+<label>USERNAME</label><input type="text" id="username" placeholder="Masukkan username">
+<label>PASSWORD</label><input type="password" id="password" placeholder="Masukkan password">
+<button onclick="login()">🚀 LOGIN</button>
+<div id="loginError" class="error hidden">Username atau password salah!</div>
+<div class="info"><b>PLAYER</b><br>Username: player1, player2, player3, dst.<br>Password: 12345678<br><br><b>ADMIN</b><br>Username: admin67<br>Password: admin77</div>
+</section>
+
+<section id="playerPage" class="container hidden">
+<div class="title"><h2>🎮 PENDAFTARAN PLAYER U17</h2><p>Selamat datang di TEAM TSUBASA GAMING</p></div>
+<div class="info">Login sebagai: <b id="playerName"></b></div>
+<form id="registrationForm">
+<label>NAMA LENGKAP</label><input type="text" id="nama" placeholder="Nama lengkap" required>
+<label>NAMA ESPORT / NICKNAME</label><input type="text" id="nickname" placeholder="Contoh: TSB.Nama" required>
+<label>TANGGAL LAHIR</label><input type="date" id="lahir" required>
+<label>GAME</label><select id="game" required><option value="">-- Pilih Game --</option><option>Mobile Legends</option><option>Free Fire</option><option>PUBG Mobile</option><option>Valorant</option><option>EA FC Mobile</option><option>Lainnya</option></select>
+<label>ID GAME</label><input type="text" id="gameid" placeholder="ID game" required>
+<label>NOMOR WHATSAPP</label><input type="tel" id="wa" placeholder="08xxxxxxxxxx" required>
+<div class="info">⚡ <b>SYARAT U17</b><br><br>• Tahun lahir <b>2009 sampai 2023</b><br>• Memiliki ID game aktif<br>• Siap mengikuti seleksi<br>• Sportif dan disiplin</div>
+<label><input type="checkbox" id="agreement" style="width:auto;margin-right:8px" required>Saya menyatakan data yang saya masukkan benar.</label>
+<button type="submit">🏆 KIRIM PENDAFTARAN</button>
+</form>
+<div id="registrationSuccess" class="success hidden">✅ Pendaftaran berhasil!<br>Silakan tunggu informasi seleksi dari admin.</div>
+<button class="logout" onclick="logout()">🚪 LOGOUT</button>
+</section>
+
+<section id="adminPage" class="container hidden">
+<div class="title"><h2>🛡️ ADMIN DASHBOARD</h2><p>TEAM TSUBASA GAMING U17</p></div>
+<div class="info">Login sebagai <b>ADMINISTRATOR</b></div>
+<div class="dashboard"><div class="card"><h3 id="totalPlayer">0</h3><p>Total Player</p></div><div class="card"><h3>U17</h3><p>Kategori</p></div><div class="card"><h3>ONLINE</h3><p>Status Sistem</p></div></div>
+<h3 style="margin-top:30px;color:#62d4ff">📋 DATA PENDAFTAR</h3>
+<div style="overflow-x:auto"><table><thead><tr><th>Player</th><th>Nama</th><th>Nickname</th><th>Game</th><th>ID Game</th><th>WhatsApp</th></tr></thead><tbody id="playerTable"></tbody></table></div>
+<button class="logout" onclick="logout()">🚪 LOGOUT ADMIN</button>
+</section>
+
+<footer>© 2026 TEAM TSUBASA GAMING U17</footer>
+
+<script>
+const playerAccounts={};
+for(let i=1;i<=100;i++) playerAccounts["player"+i]={password:"12345678",role:"player"};
+const adminAccount={username:"admin67",password:"admin77",role:"admin"};
+
+function login(){
+ const username=document.getElementById("username").value.trim();
+ const password=document.getElementById("password").value;
+ const error=document.getElementById("loginError");
+ error.classList.add("hidden");
+ if(username===adminAccount.username&&password===adminAccount.password){
+  localStorage.setItem("loginUser",username);localStorage.setItem("loginRole","admin");showAdmin();return;
+ }
+ if(playerAccounts[username]&&playerAccounts[username].password===password){
+  localStorage.setItem("loginUser",username);localStorage.setItem("loginRole","player");showPlayer(username);return;
+ }
+ error.classList.remove("hidden");
+}
+function showPlayer(username){
+ document.getElementById("loginPage").classList.add("hidden");
+ document.getElementById("adminPage").classList.add("hidden");
+ document.getElementById("playerPage").classList.remove("hidden");
+ document.getElementById("playerName").textContent=username;
+}
+function showAdmin(){
+ document.getElementById("loginPage").classList.add("hidden");
+ document.getElementById("playerPage").classList.add("hidden");
+ document.getElementById("adminPage").classList.remove("hidden");
+ loadPlayers();
+}
+function logout(){localStorage.removeItem("loginUser");localStorage.removeItem("loginRole");location.reload();}
+window.addEventListener("load",()=>{
+ const user=localStorage.getItem("loginUser"),role=localStorage.getItem("loginRole");
+ if(role==="admin")showAdmin();else if(role==="player")showPlayer(user);
+});
+const today=new Date();
+const minBirthDate=new Date(2009,0,1);
+const maxBirthDate=new Date(2023,11,31);
+const lahirInput=document.getElementById("lahir");
+lahirInput.min=minBirthDate.toISOString().split("T")[0];
+lahirInput.max=maxBirthDate.toISOString().split("T")[0];
+
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+ e.preventDefault();
+
+ const username=localStorage.getItem("loginUser");
+ const nama=document.getElementById("nama").value.trim();
+ const nickname=document.getElementById("nickname").value.trim();
+ const lahir=document.getElementById("lahir").value;
+ const game=document.getElementById("game").value;
+ const gameid=document.getElementById("gameid").value.trim();
+ const wa=document.getElementById("wa").value.trim();
+
+ const birth=new Date(lahir+"T00:00:00");
+
+ if(!lahir || birth < minBirthDate || birth > maxBirthDate){
+  alert("Pendaftaran U17 khusus tahun lahir 2009 sampai 2023.");
+  return;
+ }
+
+ const players=JSON.parse(localStorage.getItem("players")||"[]");
+ players.push({username,nama,nickname,lahir,game,gameid,wa});
+ localStorage.setItem("players",JSON.stringify(players));
+
+ document.getElementById("registrationSuccess").classList.remove("hidden");
+ this.reset();
+});
+function loadPlayers(){
+ const players=JSON.parse(localStorage.getItem("players")||"[]");
+ document.getElementById("totalPlayer").textContent=players.length;
+ const table=document.getElementById("playerTable");table.innerHTML="";
+ players.forEach(p=>{
+  const row=document.createElement("tr");
+  row.innerHTML=`<td>${escapeHTML(p.username)}</td><td>${escapeHTML(p.nama)}</td><td>${escapeHTML(p.nickname)}</td><td>${escapeHTML(p.game)}</td><td>${escapeHTML(p.gameid)}</td><td>${escapeHTML(p.wa)}</td>`;
+  table.appendChild(row);
+ });
+}
+function escapeHTML(text){return String(text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");}
+</script>
+</body>
+</html>
